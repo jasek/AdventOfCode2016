@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>b6b3625f-3be9-4e8a-9857-cee6c0f2efdf</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>adventofcode.py</StartupFile>
+    <StartupFile>day2.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,7 +22,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="adventofcode.py" />
+    <Compile Include="day1.py" />
+    <Compile Include="day2.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
