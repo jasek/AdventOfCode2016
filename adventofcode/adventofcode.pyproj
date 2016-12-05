@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>b6b3625f-3be9-4e8a-9857-cee6c0f2efdf</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>day3.py</StartupFile>
+    <StartupFile>day8-2015-2.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,10 +22,23 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="day8-2015-2.py" />
+    <Compile Include="day8-2015.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="day1.py" />
+    <Compile Include="day3-2.py" />
     <Compile Include="day3.py" />
     <Compile Include="day2-2.py" />
     <Compile Include="day2.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="day4-2.py" />
+    <Compile Include="day4.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="day5-2.py" />
+    <Compile Include="day5-1.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
