@@ -45,10 +45,6 @@ def printMatrix():
                 ln += PIXW
         print(str(l).zfill(2) + ' ' + ln)
 
-def export():
-    for l in m:
-        print(';'.join(l))
-
 def getChildren(node):
     child = []
     x = node[0]
@@ -74,15 +70,20 @@ def addParents(parent, children):
     for child in children:
         parents[child] = parent
 
-def solve(startNode):
+def solve(startNode, mmvs):
+    res = set()
     queue = []
     queue.append(startNode)
     while len(queue) > 0:
         node = queue.pop(0)
         markVisited(node)
-        children = getChildren(node)
-        addParents(node, children)
-        queue.extend(children)
+        way = findWay(node)
+        if len(way) <= mmvs:
+            children = getChildren(node)
+            addParents(node, children)
+            queue.extend(children)
+            res.add(node)
+    return res
 
 def findWay(node):
     way = []
@@ -92,35 +93,13 @@ def findWay(node):
         c = parents[c]
     return way
 
-def markWay(way):
-    for node in way:
-        m[node[1]][node[0]] = 3
 
-
-def findVisitedForMax(mmvs):
-    res = []
-    for p in parents:
-        way = findWay(p)
-        if len(way)<=mmvs:
-            res.append(p)
-    return res
 
 createMatrix(size)
-
 printMatrix()
 
-print(calculate(0,2))
-print(bin(calculate(0,2)))
-print(evenBinaryZeros(calculate(1,1)))
-
-print(getChildren((9,1)))
-solve(start)
+vis = solve(start, mmvs)
+vis = list(vis)
 printMatrix()
-
-#way = findWay(solution)
-#markWay(way)
-printMatrix()
-#print(len(way), way)
-
-vis = findVisitedForMax(mmvs)
-print(vis,len(vis)+1)
+vis.sort()
+print(vis,len(vis))
