@@ -1,7 +1,14 @@
 fn = 1364
 m = []
-PIXON ='\u2588'
+solution = (31,39)
+start = (1,1)
+size = 50
+
+PIXON = '\u2588'
 PIXOFF = '\u2592'
+PIXV = '.'
+PIXW = 'x'
+parents = dict()
 def calculate(x, y):
     return x * x + 3 * x + 2 * x * y + y + y * y + fn
 
@@ -25,7 +32,16 @@ def printMatrix():
     print(fr2)
     print(fr)
     for l in range(len(m)):
-        ln = ''.join(str(m[l]))
+        ln = ''
+        for s in m[l]:
+            if s == 0:
+                ln += PIXOFF
+            elif s ==1:
+                ln += PIXON
+            elif s ==2:
+                ln += PIXV
+            elif s ==3:
+                ln += PIXW
         if l == 39:
             ln = ln[:31] + 'O' + ln[32:]
         print(str(l).zfill(2) + ' ' + ln)
@@ -34,11 +50,69 @@ def export():
     for l in m:
         print(';'.join(l))
 
-createMatrix(50)
-print(m)
+def getChildren(node):
+    child = []
+    x = node[0]
+    y = node[1]
+    if x - 1 >= 0:
+        if m[y][x - 1] == 0:
+            child.append((x - 1,y))
+    if y+1<size:
+        if m[y+1][x] == 0:
+            child.append((x,y+1))
+    if x+1<size:
+        if m[y][x+1] == 0:
+            child.append((x+1,y))
+    if y - 1 >= 0:
+        if m[y-1][x] == 0:
+            child.append((x,y-1))
+    return child
+
+def markVisited(node):
+    m[node[1]][node[0]] = 2
+
+def addParents(parent, children):
+    for child in children:
+        parents[child] = parent
+
+def solve(startNode):
+    queue = []
+    queue.append(startNode)
+    while len(queue) > 0:
+        node = queue.pop(0)
+        markVisited(node)
+        if node == solution:
+            return
+        else:
+            children = getChildren(node)
+            addParents(node, children)
+            queue.extend(children)
+
+def findWay(node):
+    way = []
+    c = node
+    while c != start:
+        way.append(c)
+        c = parents[c]
+    return way
+
+def markWay(way):
+    for node in way:
+        m[node[1]][node[0]] = 3
+
+createMatrix(size)
 
 printMatrix()
 
 print(calculate(0,2))
 print(bin(calculate(0,2)))
 print(evenBinaryZeros(calculate(1,1)))
+
+print(getChildren((9,1)))
+solve(start)
+printMatrix()
+
+way = findWay(solution)
+markWay(way)
+printMatrix()
+print(len(way), way)
