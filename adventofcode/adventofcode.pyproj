@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>b6b3625f-3be9-4e8a-9857-cee6c0f2efdf</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>day8-2015-2.py</StartupFile>
+    <StartupFile>day13-1.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,6 +22,24 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="day12-1.py" />
+    <Compile Include="day11-1.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="day13-1.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="day6-2.py" />
+    <Compile Include="day6-1.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="day7-2.py" />
+    <Compile Include="day7-1.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="day8-1.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="day8-2015-2.py" />
     <Compile Include="day8-2015.py">
       <SubType>Code</SubType>
@@ -41,6 +59,16 @@
     <Compile Include="day5-1.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="day10-1.py" />
+    <Compile Include="day9-2.py" />
+    <Compile Include="day9-1.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="input12.txt" />
+    <Content Include="input10.txt" />
+    <Content Include="input9.txt" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
