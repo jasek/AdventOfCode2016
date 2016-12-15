@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>b6b3625f-3be9-4e8a-9857-cee6c0f2efdf</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>day13-2.py</StartupFile>
+    <StartupFile>day11-1 - Copy - Copy - Copy.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,12 +22,22 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="day11-1 - Copy - Copy - Copy.py" />
+    <Compile Include="day11-1 - Copy - Copy.py" />
+    <Compile Include="day11-1 - Copy.py" />
     <Compile Include="day12-1.py" />
     <Compile Include="day11-1.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="day13-2.py" />
     <Compile Include="day13-1.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="day14-1.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="day15-1 - Copy.py" />
+    <Compile Include="day15-1.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="day6-2.py" />
@@ -69,6 +79,7 @@
   <ItemGroup>
     <Content Include="input12.txt" />
     <Content Include="input10.txt" />
+    <Content Include="input15.txt" />
     <Content Include="input9.txt" />
   </ItemGroup>
   <PropertyGroup>
