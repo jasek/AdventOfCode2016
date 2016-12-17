@@ -15,7 +15,6 @@ def calculate(x, y):
 def evenBinaryZeros(i):
     return 0 if bin(i)[2:].count('1') % 2 == 0 else 1
 
-
 def createMatrix(size):
     for i in range(size):
         row = []
@@ -45,10 +44,6 @@ def printMatrix():
         if l == 39:
             ln = ln[:31] + 'O' + ln[32:]
         print(str(l).zfill(2) + ' ' + ln)
-
-def export():
-    for l in m:
-        print(';'.join(l))
 
 def getChildren(node):
     child = []
@@ -103,16 +98,10 @@ def markWay(way):
 createMatrix(size)
 
 printMatrix()
-
-print(calculate(0,2))
-print(bin(calculate(0,2)))
-print(evenBinaryZeros(calculate(1,1)))
-
-print(getChildren((9,1)))
 solve(start)
 printMatrix()
-
 way = findWay(solution)
 markWay(way)
 printMatrix()
-print(len(way), way)
+print('way:', way)
+print('result',len(way))

@@ -1,6 +1,8 @@
 import hashlib
 import string
 
+#wrong implementation
+
 hashnumbers = set()
 salt = 'abc'
 limit = 64
