@@ -3,8 +3,10 @@ import time
 
 start = time.time()
 solutions = []
-
 iterations = 0
+queue = []
+visited = set()
+elements = []
 
 def isFloorCorrect(floor):
     for el in floor:
@@ -14,8 +16,6 @@ def isFloorCorrect(floor):
                     if gen[1:2] == 'G':
                         return False
     return True
-
-
 
 def getDoubleCombos(floor):
     floor = list(floor)
@@ -31,7 +31,6 @@ def getDoubleCombos(floor):
             else:                
                 res.append([floor[i],floor[j]])
     return res
-
 
 def getUpCombos(floor):
     pairg = False
@@ -76,14 +75,6 @@ def getDownCombos(floor):
         pos.append([x])
     return pos
 
-
-mins = set()
-min = 40
-
-
-queue = []
-visited = set()
-
 def addToQueue(sol):
     tup = sol.arrangment.pairs
     if tup in visited:
@@ -91,26 +82,14 @@ def addToQueue(sol):
     visited.add(tup)
     queue.append(sol)
 
-
-'''visited = []
-
-def addToQueue(sol):
-    for v in visited:
-        if v.equals(sol.arrangment):
-            return
-    visited.append(sol.arrangment)
-    queue.append(sol)'''
-
-
-elements = []
-
-
 def getElements(floors):
+    elements = []
     for fl in floors:
         for el in fl:
             if el[:1] not in elements:
                 elements.append(el[:1])
     elements.sort()
+    return elements
 
 
 class Arrangment:
@@ -148,21 +127,6 @@ class Arrangment:
         pairs.append(self.elevator)
         return tuple(pairs)
 
-    def __hash__(self):
-        #newFloors = []
-        #for f in self.floors:
-        #    newFloors.append(tuple(sorted(f)))
-        return hash(self.getPairs())
-
-    def __eq__(self, other):
-        return self.equals(other)
-
-    def __ne__(self, other):
-        # Not strictly necessary, but to avoid having both x==y and x!=y
-        # True at the same time
-        return not(self == other)
-
-
 class Solution:
     def __init__(self, arrangment, parent, step):
         self.arrangment = arrangment
@@ -180,11 +144,8 @@ def solve():
     global iterations
     while True:
         cur = queue.pop(0)
-        #cur.print()
-        #print(cur.step,len(queue))
         iterations +=1
         if (cur.arrangment.isFinished()):
-            print('fuck yeah')
             cur.printToRoot()
             print('res',cur.step)
             return
@@ -214,6 +175,7 @@ def moveUp(sol, combo):
             fl.update(sol.arrangment.floors[i])
         newFloors.append(fl)
     return Solution(Arrangment(newFloors, sol.arrangment.elevator + 1), sol, sol.step + 1)
+
 def moveDown(sol, combo):
     newFloors = []
     for i in range(len(sol.arrangment.floors)):
@@ -230,23 +192,18 @@ def moveDown(sol, combo):
         newFloors.append(fl)
     return Solution(Arrangment(newFloors, sol.arrangment.elevator - 1), sol, sol.step + 1)
 
-    
-#initFloors = [{'PG','SG'},{'PM','SM'},{'HG','HM','RG','RM'},set()]
-#initFloors = [{'TG','TM','PG','SG'},{'PM','SM'},{'HG','HM','RG','RM'},set()]
-initFloors = [{'EG','EM','DG','DM','TG','TM','PG','SG'},{'PM','SM'},{'HG','HM','RG','RM'},set()]
+   
+part1 = [{'TG','TM','PG','SG'},{'PM','SM'},{'HG','HM','RG','RM'},set()]
+part2 = [{'EG','EM','DG','DM','TG','TM','PG','SG'},{'PM','SM'},{'HG','HM','RG','RM'},set()]
 
-
-a1 = Arrangment(initFloors, 0)
-initSolution = Solution(a1, None, 0)
+initSolution = Solution(Arrangment(part1, 0), None, 0)
 addToQueue(initSolution)
-getElements(initFloors)
+elements = getElements(part1)
 solve()
-
-#print(elements)
-#print(a1.getPairs())
-
+queue = []
+#initSolution2 = Solution(Arrangment(part2, 0), None, 0)
+#addToQueue(initSolution2)
+#elements = getElements(part2)
+#solve()
 print('iterations',iterations)
-
-end = time.time()
-print('Time elapsed:',end - start)
-input()
+print('Time elapsed:',time.time() - start)

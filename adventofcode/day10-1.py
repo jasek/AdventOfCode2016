@@ -71,30 +71,6 @@ while True:
             bots[high] = [max(bots[bot])]
     bots[bot] = []
 
-
-
-'''        if line[5] == 'output':
-            if (low in output):
-                output[low].append(min(bots[bot]))
-            else:
-                output[low] = [min(bots[bot])]
-        else:
-            if (low in bots):
-                bots[low].append(min(bots[bot]))
-            else:
-                bots[low] = [min(bots[bot])]
-        if line[10] == 'output':
-            if (high in output):
-                output[high].append(max(bots[bot]))
-            else:
-                output[high] = [max(bots[bot])]
-        else:
-            if (high in bots):
-                bots[high].append(max(bots[bot]))
-            else:
-                bots[high] = [max(bots[bot])]'''
-print(bots)
-print('out',output)
 print('res2',output[0][0]*output[1][0]*output[2][0])
 
    
