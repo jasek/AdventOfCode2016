@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>b6b3625f-3be9-4e8a-9857-cee6c0f2efdf</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>day20.py</StartupFile>
+    <StartupFile>day24.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,6 +22,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="day25.py" />
+    <Compile Include="day24.py" />
+    <Compile Include="day23.py" />
     <Compile Include="day12-1.py" />
     <Compile Include="day11-1.py">
       <SubType>Code</SubType>
@@ -39,7 +42,6 @@
     <Compile Include="day16.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="day17-2 - Copy.py" />
     <Compile Include="day17-2.py" />
     <Compile Include="day17-1.py">
       <SubType>Code</SubType>
@@ -52,6 +54,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="day20.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="day22-2.py" />
+    <Compile Include="day22.py" />
+    <Compile Include="day21-2.py" />
+    <Compile Include="day21.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="day6-2.py" />
@@ -91,6 +99,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="input25.txt" />
+    <Content Include="input24.txt" />
+    <Content Include="input23.txt" />
+    <Content Include="input22.txt" />
+    <Content Include="input21.txt" />
     <Content Include="input20.txt" />
     <Content Include="input12.txt" />
     <Content Include="input10.txt" />
