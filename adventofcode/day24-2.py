@@ -163,6 +163,8 @@ def markWay(way):
 
 total = 10000
 for j in itertools.permutations(tovisit):
+    j = list(j)
+    j.append(0)
     print(j)
     solution = []
     current = 0    
