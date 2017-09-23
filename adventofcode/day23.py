@@ -5,10 +5,10 @@ lines = open('input23.txt', 'r').read().splitlines()
 
 
 registers = dict()
-registers['a'] = 5040
-registers['b'] = 1
-registers['c'] = 79
-registers['d'] = 74
+registers['a'] = 12
+registers['b'] = 0
+registers['c'] = 0
+registers['d'] = 0
 
 
 def read(a):
@@ -51,6 +51,7 @@ def solve(c):
                     instrchange[0] = 'jnz'
                 lines[forchange] = ' '.join(instrchange)
         i+=1
+        #print(instr)
     return registers['a']
 print('part1:',solve(0))
 print(registers['a'],registers['b'],registers['c'],registers['d'])
